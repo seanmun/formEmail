@@ -1,0 +1,26 @@
+html, body {
+    height: 100%;
+}
+
+body {
+    background: #780206;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #061161, #780206);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #061161, #780206); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}    
+
+div {
+    color: #ffffff;
+    /*border: 1px white dashed;*/
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 65px;
+    line-height: 90px;
+
+}
