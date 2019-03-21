@@ -18,6 +18,13 @@ div {
     line-height: 28px;
 }
 
+.pretitle {
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 60px;
+
+}
+
 .title {
     font-weight: bold;
     font-size: 65px;
