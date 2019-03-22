@@ -7,6 +7,8 @@
       <title>Document</title>
       <link rel="stylesheet" type="text/css" href="assets/css/style.css">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+      <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
       <style>
          
        
@@ -30,9 +32,45 @@
       <!-- Bootstrap JavaScript CDN -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
       <script>
-      
 
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBeW-_cbRh39JnSBVCwmsHYoa_HNIAtxFs",
+  authDomain: "test1-89e02.firebaseapp.com",
+  databaseURL: "https://test1-89e02.firebaseio.com",
+  projectId: "test1-89e02",
+  storageBucket: "test1-89e02.appspot.com",
+  messagingSenderId: "861357429732"
+};
+
+firebase.initializeApp(config);
+
+// Create a variable to reference the database
+var database = firebase.database();
+
+
+      database.ref().on("value", function(snapshot) {
+
+// If Firebase has a highPrice and highBidder stored, update our client-side variables
+if (snapshot.child("word").exists() && snapshot.child("uid").exists()) {
+  // Set the variables for highBidder/highPrice equal to the stored values.
+  word = snapshot.val().word;
+  uid = parseInt(snapshot.val().uid);
+}
+
+// If Firebase does not have highPrice and highBidder values stored, they remain the same as the
+// values we set when we initialized the variables.
+// In either case, we want to log the values to console and display them on the page.
+console.log(word);
+console.log(uid);
 $("#word").text(localStorage.getItem("word"));
+
+// If any errors are experienced, log them to console.
+}, function(errorObject) {
+console.log("The read failed: " + errorObject.code);
+});
+
       </script>
    </body>
 </html>

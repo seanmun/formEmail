@@ -6,6 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Document</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
         <style>
            
          
@@ -21,6 +23,24 @@
 <!-- Bootstrap JavaScript CDN -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script>
+
+
+// Initialize Firebase
+var config = {
+  apiKey: "AIzaSyBeW-_cbRh39JnSBVCwmsHYoa_HNIAtxFs",
+  authDomain: "test1-89e02.firebaseapp.com",
+  databaseURL: "https://test1-89e02.firebaseio.com",
+  projectId: "test1-89e02",
+  storageBucket: "test1-89e02.appspot.com",
+  messagingSenderId: "861357429732"
+};
+
+firebase.initializeApp(config);
+
+// Create a variable to reference the database
+var database = firebase.database();
+
+
 
 const urlParams = new URLSearchParams(window.location.search);
 const myParam = urlParams.get('myParam');
@@ -45,6 +65,14 @@ console.log(uid);
 localStorage.clear();
 localStorage.setItem("word", word);
 localStorage.setItem("uid", uid);
+
+// Save the new price in Firebase. This will cause our "value" callback above to fire and update
+    // the UI.
+    database.ref().set({
+      word: word,
+      uid: uid
+    });
+
 
 setTimeout(function(){
             window.location.href = 'finalURL.html';
