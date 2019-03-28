@@ -59,12 +59,13 @@ function getParameterByName(name, url) {
 
 var word = getParameterByName('reviewTitle'); 
 var uid = getParameterByName('guid'); 
+
 console.log(word);
 console.log(uid);
 
-localStorage.clear();
-localStorage.setItem("word", word);
-localStorage.setItem("uid", uid);
+// localStorage.clear();
+// localStorage.setItem("word", word);
+// localStorage.setItem("uid", uid);
 
 // Save the new price in Firebase. This will cause our "value" callback above to fire and update
     // the UI.

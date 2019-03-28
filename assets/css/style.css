@@ -19,9 +19,8 @@ div {
 }
 
 .pretitle {
-    font-weight: bold;
-    font-size: 50px;
-    line-height: 60px;
+    font-size: 40px;
+    line-height:45px;
 
 }
 
@@ -30,4 +29,11 @@ div {
     font-size: 60px;
     line-height: 65px;
 
+}
+
+.box {
+    display: block;
+    padding: 15px;
+    border: 1px white solid;
+    margin: 10px 0 auto;
 }

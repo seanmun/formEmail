@@ -18,11 +18,15 @@
       
 
         <div class="container h-100">
+
             <div class="row align-items-center h-100">
-                    <div class="pretitle col mx-auto">I am a:<br>
-                    <span id="word" class="title" ></span></div>
-            </div>
-        </div>
+              <div class="col-12 mx-auto pretitle">
+                 My word is:<br>
+                 <span id="word" class="title box" ></span>
+                </div>
+              </div>
+           </div>
+            
      
     
      
@@ -64,7 +68,8 @@ if (snapshot.child("word").exists() && snapshot.child("uid").exists()) {
 // In either case, we want to log the values to console and display them on the page.
 console.log(word);
 console.log(uid);
-$("#word").text(localStorage.getItem("word"));
+$("#word").text(word);
+
 
 // If any errors are experienced, log them to console.
 }, function(errorObject) {
